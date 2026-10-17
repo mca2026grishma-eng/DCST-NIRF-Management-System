@@ -1,4 +1,4 @@
-/**
+ /**
  * Represents the different types of members
  * in the CST department.
  */
