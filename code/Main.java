@@ -53,7 +53,8 @@ public class Main {
             System.out.println("5. Demonstrate OOP Features");
             System.out.println("6. Generate NIRF Report");
             System.out.println("7. Register a New Student");
-            System.out.println("8. Exit");
+            System.out.println("8. View Courses and Subjects (DCST / GBS)");
+            System.out.println("9. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -89,11 +90,15 @@ public class Main {
                         break;
 
                     case 8:
+                        viewCoursesAndSubjects();
+                        break;
+
+                    case 9:
                         System.out.println("Thank you for using the NIRF Management System!");
                         break;
 
                     default:
-                        System.out.println("Invalid choice. Enter a number from 1 to 8.");
+                        System.out.println("Invalid choice. Enter a number from 1 to 9.");
                 }
 
             } catch (NumberFormatException e) {
@@ -101,7 +106,7 @@ public class Main {
                 choice = 0;
             }
 
-        } while (choice != 8);
+        } while (choice != 9);
 
         sc.close();
     }
@@ -165,17 +170,88 @@ static void viewStaff() {
 
 
     static void viewActivities() {
-        System.out.println("\n===== ACTIVITIES =====");
+        System.out.println("\n===== ACADEMIC ACTIVITIES =====");
+        String[] academicActivities = {
+                "ISA (Intra-Semester Assessment)",
+                "Midpoint Assessment",
+                "SEA (Semester-End Assessment)",
+                "Study Tours and Industrial Visits",
+                "Student Placements and Internships",
+                "Seminars and Guest Lectures",
+                "Technical Workshops and Training",
+                "Research Projects and Presentations",
+                "Faculty Development Programmes",
+                "Project Demonstrations and Competitions",
+                "OOP Lab and Practical Sessions"
+        };
+        for (String activity : academicActivities) {
+            System.out.println("- " + activity);
+        }
 
-        academic.conductActivity();
-        academic.displayActivity();
-        academic.showType();
+        System.out.println("\n===== NON-ACADEMIC ACTIVITIES =====");
+        String[] nonAcademicActivities = {
+                "InfoFest",
+                "Plateaunia (verify event name and reporting year)",
+                "Play-on (verify event name and reporting year)",
+                "Sports Events and Tournaments",
+                "Cultural Programmes",
+                "Student Clubs and Competitions",
+                "Fresher's Day and Farewell Programmes",
+                "Community Outreach and Social Activities",
+                "Festival Celebrations",
+                "Student Development Programmes"
+        };
+        for (String activity : nonAcademicActivities) {
+            System.out.println("- " + activity);
+        }
 
-        System.out.println();
+        System.out.println("\nNote: Confirm which activities actually occurred in each of the three NIRF reporting years.");
+    }
 
-        nonAcademic.conductActivity();
-        nonAcademic.displayActivity();
-        nonAcademic.showType();
+    /** Displays programme and subject information for DCST and GBS. */
+    static void viewCoursesAndSubjects() {
+        System.out.println("\n===== DCST: DEPARTMENT OF COMPUTER SCIENCE & TECHNOLOGY =====");
+        System.out.println("Programmes listed by Goa University: MCA and Ph.D. in Computer Science");
+        System.out.println("\nMCA SUBJECTS (examples from the published syllabus):");
+        System.out.println("Semester I:");
+        String[] semesterOne = {
+                "Data Structures and Algorithms",
+                "Object Oriented Concepts",
+                "Operating Systems",
+                "Internet Technologies",
+                "Data Structures and Algorithms Lab",
+                "Object Oriented Programming Lab",
+                "Linux Lab"
+        };
+        for (String subject : semesterOne) System.out.println("- " + subject);
+
+        System.out.println("Semester II:");
+        String[] semesterTwo = {
+                "Web Development",
+                "Database Management Systems",
+                "Machine Learning",
+                "Web Development Lab",
+                "Database Management Systems Lab",
+                "Machine Learning Lab"
+        };
+        for (String subject : semesterTwo) System.out.println("- " + subject);
+        System.out.println("Electives depend on the applicable syllabus and student selection.");
+
+        System.out.println("\n===== GOA BUSINESS SCHOOL (GBS) =====");
+        String[] gbsProgrammes = {
+                "MBA",
+                "MBA (Executive)",
+                "MBA (Financial Services)",
+                "M.Com.",
+                "M.A. Economics",
+                "M.Sc. Data Science",
+                "M.Sc. Artificial Intelligence",
+                "Integrated MBA (Hospitality, Travel and Tourism)",
+                "Master of Library and Information Science (M.L.I.Sc.)",
+                "Ph.D. programmes in Commerce, Economics and Management Studies"
+        };
+        for (String programme : gbsProgrammes) System.out.println("- " + programme);
+        System.out.println("\nNote: Verify current programme availability and detailed subjects against the official GU syllabus before submission.");
     }
 
     static void demonstrateOOP() {
@@ -295,9 +371,26 @@ static void viewStaff() {
             }
 
             writer.println("Teaching Staff        : HHR");
-            writer.println("Academic Activity     : OOP Lab");
-            writer.println("Non-Academic Activity : Sports Day");
-            writer.println("Report Status         : Generated");
+            writer.println("Non-Teaching Staff    : Amit (Lab Assistant)");
+            writer.println();
+            writer.println("ACADEMIC ACTIVITIES (verify year-wise records)");
+            writer.println("ISA, Midpoint, SEA, study tours, industrial visits,");
+            writer.println("placements, internships, seminars, workshops, research projects,");
+            writer.println("faculty development programmes and practical labs.");
+            writer.println();
+            writer.println("NON-ACADEMIC ACTIVITIES (verify year-wise records)");
+            writer.println("InfoFest, Plateaunia, Play-on, sports, cultural programmes,");
+            writer.println("student clubs, outreach and student development activities.");
+            writer.println();
+            writer.println("DCST PROGRAMMES: MCA; Ph.D. in Computer Science.");
+            writer.println("MCA SUBJECTS INCLUDE: Data Structures and Algorithms, Object Oriented Concepts,");
+            writer.println("Operating Systems, Internet Technologies, Web Development,");
+            writer.println("Database Management Systems and Machine Learning, with labs.");
+            writer.println("GBS PROGRAMMES INCLUDE: MBA, MBA (Executive), MBA (Financial Services),");
+            writer.println("M.Com., M.A. Economics, M.Sc. Data Science and M.Sc. Artificial Intelligence.");
+            writer.println("Report period          : Past three academic/reporting years");
+            writer.println("Important              : Enter verified year-wise student/staff totals and activities.");
+            writer.println("Report Status         : Generated - verify figures before NIRF submission");
             writer.println("----------------------------------------");
             writer.println("End of Report");
 
